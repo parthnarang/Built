@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "14645873544",
+    "firebase_url": "https://buiit-320bc.firebaseio.com",
+    "project_id": "buiit-320bc",
+    "storage_bucket": "buiit-320bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14645873544:android:7f0c58f301b28f4b",
+        "android_client_info": {
+          "package_name": "parth.com.buiit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "14645873544-p9m4thet9grnpffkiulov9rh1ldmoi4g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "parth.com.buiit",
+            "certificate_hash": "2cf25e687436d52bc26d4574bfc824530cd25959"
+          }
+        },
+        {
+          "client_id": "14645873544-0bnru82r3vittkaa8r3hv7mn1mj4qos8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMETzb7cz5hlW9kHuIIio0aFNRHv4AWNE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "14645873544-0bnru82r3vittkaa8r3hv7mn1mj4qos8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
