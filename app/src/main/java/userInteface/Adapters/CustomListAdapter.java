@@ -12,26 +12,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 
 import app.AppController;
-import model.Movie;
-import model.builtCore.Merchant;
+import model.billtCore.Merchant;
 import parth.com.buiit.R;
 
 public class CustomListAdapter extends BaseAdapter {
 	private Activity activity;
 	private LayoutInflater inflater;
-	private ArrayList<Merchant> merchantList;
+	private List<Merchant> merchantList;
 	ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
-	public CustomListAdapter(Activity activity, ArrayList<Merchant> merchantList) {
+	public CustomListAdapter(Activity activity, List<Merchant> merchantList) {
 		this.activity = activity;
 		this.merchantList = merchantList;
+	}
+	public void swapItems(List<Merchant> merchantList) {
+		this.merchantList = merchantList;
+		notifyDataSetChanged();
 	}
 
 	@Override

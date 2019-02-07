@@ -16,26 +16,26 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         >
 
         <TableRow
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_marginTop="10dp"
-            android:gravity="center">
+            android:gravity="center"
+            >
 
 
             <TextView
                 android:id="@+id/merchant_name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:gravity="center"
                 android:textColor ="@color/heading_color"
                 android:text="DREAM VALLEY STORE"
+                android:gravity="center"
                 android:textStyle="bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
@@ -43,74 +43,102 @@
 
 
         <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal"
             android:layout_marginTop="5dp">
             <TextView
-                android:gravity="center"
                 android:id="@+id/merchant_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/heading_color"
-                android:layout_column="1"
-                android:text="Shop N-4-5 Ground Floor, Pan oasis market,sector 70,Noida(UP) 999913064" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_marginTop="5dp"
-            >
-            <TextView
                 android:gravity="center"
+                android:text="Shop N-4-5 Ground Floor, Pan oasis market,sector 70,Noida(UP) 999913064" /></TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal">
+            <TextView
                 android:id="@+id/gst_no"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:textColor="@color/heading_color"
-                android:layout_column="1"
                 android:text="GST : 09AAFCPO614H3ZK" />
         </TableRow>
-
+    </TableLayout>
         <View
+            android:layout_marginTop="3dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/heading_color"/>
 
 
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        >
         <TableRow
             android:padding="10dp"
             >
             <TextView
                 android:gravity="left"
-                android:id="@+id/bill_no"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/heading_color"
-                android:layout_column="1"
-                android:text="Bill No: CA86360 :" />
+                android:text="Bill No : "
+                />
+            <TextView
+                android:gravity="left"
+                android:id="@+id/bill_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/heading_color"
+
+                 />
         </TableRow>
         <TableRow
             android:padding="10dp"
             >
+
+            <TextView
+                android:gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/heading_color"
+                android:text="Date : " />
             <TextView
                 android:gravity="left"
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/heading_color"
-                android:layout_column="1"
+
                 android:text="Date : 21/10/18" />
         </TableRow>
         <TableRow
             android:padding="10dp"
             >
+
+            <TextView
+                android:gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/heading_color"
+                android:text="Time : " />
             <TextView
                 android:gravity="left"
                 android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/heading_color"
-                android:layout_column="1"
                 android:text="Time : 18:00 PM" />
         </TableRow> </TableLayout>
         <TableLayout
+            android:id="@+id/item_table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -118,20 +146,23 @@
             android:stretchColumns="*"
             >
         <TableRow
-            android:background="@color/item_heading_bg_color"
+            android:id="@+id/item_header"
             android:textStyle="bold"
             android:padding="10dp"
+            android:layout_marginBottom="3dp"
             >
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/heading_color"
                 android:layout_weight="0.4"
+                android:textStyle="bold"
                 android:text="Description" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/heading_color"
+                android:textStyle="bold"
                 android:layout_weight="0.2"
                 android:text="Quantity"
                 />
@@ -139,49 +170,23 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/heading_color"
+                android:textStyle="bold"
                 android:layout_weight="0.2"
                 android:text="Rate" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/heading_color"
+                android:textStyle="bold"
                 android:layout_weight="0.2"
                 android:text="Amount" />
         </TableRow>
 
 
-            <TableRow
-                android:padding="10dp"
-                >
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/heading_color"
-                    android:layout_weight="0.4"
-                    android:text="AMUL Tonned 1 ltr Milk  From original Cow" />
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/heading_color"
-                    android:gravity="center"
-                    android:layout_weight="0.2"
-                    android:text="2" />
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/heading_color"
-                    android:layout_weight="0.2"
-                    android:gravity="center"
-                    android:text="21.00" />
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/heading_color"
-                    android:gravity="center"
-                    android:layout_weight="0.2"
-                    android:text="21.00" />
-            </TableRow>
 
+
+
+</TableLayout>
 
 
 
@@ -189,8 +194,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/heading_color"/>
+    <TableLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:shrinkColumns="*"
+        android:stretchColumns="*"
+        >
             <TableRow
-                android:layout_marginTop="8dp"
                 android:padding="5dp"
                 >
                 <TextView
@@ -200,6 +212,13 @@
                     android:layout_column="3"
                     android:layout_weight="1"
                     android:text="Subtotal: " />
+                <TextView
+                    android:id="@+id/subtotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/heading_color"
+                    android:layout_column="4"
+                    android:layout_weight="1" />
 
             </TableRow>
             <TableRow
@@ -211,6 +230,14 @@
                     android:layout_column="3"
                     android:layout_weight="1"
                     android:text="VAT: " />
+                <TextView
+                    android:id="@+id/vat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/heading_color"
+                    android:layout_column="4"
+                    android:layout_weight="1"
+                     />
 
             </TableRow>
             <TableRow
@@ -222,6 +249,15 @@
                     android:layout_column="3"
                     android:layout_weight="1"
                     android:text="Discount: " />
+                <TextView
+                    android:id="@+id/discount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/heading_color"
+                    android:layout_column="4"
+                    android:layout_weight="1"
+                    android:text="0.0"
+                    />
 
             </TableRow>
             <TableRow
@@ -238,6 +274,17 @@
                     android:padding="4dp"
                     android:layout_weight="1"
                     android:text="Total" />
+                <TextView
+                    android:id="@+id/total"
+                    android:layout_width="wrap_content"
+                    android:background="@color/heading_color"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:layout_column="4"
+                    android:padding="4dp"
+                    android:layout_weight="1" />
 
             </TableRow>
 

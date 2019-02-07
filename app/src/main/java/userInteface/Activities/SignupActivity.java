@@ -14,9 +14,11 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
+import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -36,6 +38,8 @@ import model.User;
 import parth.com.buiit.R;
 import userInteface.Activities.MainActivity;
 import utils.EmailValidator;
+
+import static model.URLs.MERCHANT_LOGO;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -105,6 +109,23 @@ public class SignupActivity extends AppCompatActivity {
 
     };
 
+    final StringRequest merchantLogoRequest = new StringRequest(Request.Method.GET,MERCHANT_LOGO,
+            new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Log.d("parthhey", "response received from server for merchantLogoRequest :" + response.toString());
+                }
+            }, new Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(VolleyError error) {
+            if(error  instanceof NoConnectionError)
+                Log.d("parthhey","abc");
+
+
+
+        }
+    });
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,7 +146,7 @@ public class SignupActivity extends AppCompatActivity {
         inputPhoneNo.setText(phoneNumber);
         inputPhoneNo.setFocusable(false);
 
-
+        VolleyQueue.getInstance(SignupActivity.this).addToRequestQueue(merchantLogoRequest);
 
 
      /*   btnSignIn.setOnClickListener(new View.OnClickListener() {
@@ -153,7 +174,8 @@ public class SignupActivity extends AppCompatActivity {
                     return;
                 }
 
-                VolleyQueue.getInstance(SignupActivity.this).addToRequestQueue(stringRequest);
+              VolleyQueue.getInstance(SignupActivity.this).addToRequestQueue(stringRequest);
+
 
              //   Intent intent = new Intent(SignupActivity.this, VerifyPhoneActivity.class);
              //   intent.putExtra("phonenumber", phoneNumber);

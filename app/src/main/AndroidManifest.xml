@@ -33,14 +33,31 @@
         <activity android:name="userInteface.Activities.LoginWithPasswordActivity" />
         <activity
             android:name="userInteface.Activities.UserProfileActivity"
-            android:label="BuiIT"
+            android:label="BillT"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name="userInteface.Activities.InvoiceDisplayActivity" />
         <activity
             android:name="userInteface.Activities.StoreInvoiceListActivity"
             android:label="Invoices"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name="userInteface.Activities.BaseDrawerActivity"></activity>
+        <activity android:name="userInteface.Activities.BaseDrawerActivity" />
+
+        <service
+            android:name="services.FireBaseInstanceIDService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="services.MyFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

@@ -17,8 +17,11 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import database.AppDatabase;
 import model.Movie;
+import model.billtCore.Invoice;
 import parth.com.buiit.R;
+import tasks.NotificationTasks;
 import userInteface.Adapters.CustomListAdapter;
 import userInteface.Adapters.MyPagerAdapter;
 import userInteface.Fragments.HomeFragment;
@@ -29,18 +32,15 @@ public class UserProfileActivity extends BaseDrawerActivity
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    // Movies json url
-    private static final String url = "https://api.androidhive.info/json/movies.json";
-    private ProgressDialog pDialog;
-    private List<Movie> movieList = new ArrayList<Movie>();
-    private ListView listView;
-    private CustomListAdapter adapter;
     private ViewPager vp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_bar_user_profile);
+
+
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -69,14 +69,6 @@ public class UserProfileActivity extends BaseDrawerActivity
 
     public void onTabSelected(TabLayout.Tab tab) {
         vp.setCurrentItem(tab.getPosition());
-    }
-
-
-    private void hidePDialog() {
-        if (pDialog != null) {
-            pDialog.dismiss();
-            pDialog = null;
-        }
     }
 
 

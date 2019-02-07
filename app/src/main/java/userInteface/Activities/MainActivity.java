@@ -3,6 +3,7 @@ package userInteface.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONObject;
 
@@ -29,6 +31,7 @@ import utils.CountryData;
 
 public class MainActivity extends AppCompatActivity {
 
+    private String TAG = MainActivity.class.getName();
     private Spinner spinner;
     private EditText editText;
     private String number;
@@ -49,22 +52,20 @@ public class MainActivity extends AppCompatActivity {
 
                             //getting the user from the response
                             JSONObject userJson = obj.getJSONObject("user");*/
-                       if(response.equals("true")) {
-                           finish();
-                           startActivity(new Intent(getApplicationContext(), VerifyPhoneActivity.class));
-                       }
-                       else {
-                           Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
-                           intent.putExtra("phonenumber", number);
-                           startActivity(intent);
-                       }
-
-
-                            //Toast.makeText(MainActivity.this, response, 3).show();
-                          //  startActivity(new Intent(getApplicationContext(), SignupActivity.class));
-
+                        if (response.equals("true")) {
+                            finish();
+                            startActivity(new Intent(getApplicationContext(), VerifyPhoneActivity.class));
+                        } else {
+                            Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+                            intent.putExtra("phonenumber", number);
+                            startActivity(intent);
                         }
-                     catch (Exception e) {
+
+
+                        //Toast.makeText(MainActivity.this, response, 3).show();
+                        //  startActivity(new Intent(getApplicationContext(), SignupActivity.class));
+
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         editText = findViewById(R.id.editTextPhone);
-         findViewById(R.id.buttonContinue).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.buttonContinue).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -99,11 +100,11 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                VolleyQueue.getInstance(MainActivity.this).addToRequestQueue(stringRequest);
+               // VolleyQueue.getInstance(MainActivity.this).addToRequestQueue(stringRequest);
                 String phoneNumber = number;
-              //  Intent intent = new Intent(MainActivity.this, VerifyPhoneActivity.class);
-              //  intent.putExtra("phonenumber", number);
-               // startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, VerifyPhoneActivity.class);
+                 intent.putExtra("phonenumber", number);
+                startActivity(intent);
 
             }
         });
@@ -114,10 +115,13 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            Intent intent = new Intent(this, UserProfileActivity.class);
+            Intent intent = new Intent(this, SignupActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+           // String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+          //  Log.d(TAG, "Refreshed token: " + refreshedToken);
 
             startActivity(intent);
         }
     }
-    }
+}
